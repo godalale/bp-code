@@ -2,9 +2,8 @@
 #include "TGraph.h"
 #include "TAxis.h"
 #include "TLine.h"
-#include "TFile.h"
 
-void graphReso() {
+void plotEfficiency() {
   TCanvas *c1 = new TCanvas("c1","c1",800,600);
   c1->SetGrid(0,1);
 
@@ -57,8 +56,5 @@ void graphReso() {
 
   axis->SetLimits(-0.5,10.5);
 
-  TFile *output = new TFile("eff.root","RECREATE");
-  c1->Write();
   c1->SaveAs("pdfs/efficiency.pdf");
-  output->Close();
 }
