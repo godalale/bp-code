@@ -169,8 +169,13 @@ struct ClusterHists {
 };
 
 void analyzeTrees(TString inFileName, TString outFileName="") {
+  
   if (outFileName == "") {
-    outFileName = "hists/processed_" + inFileName;
+    TString base = inFileName;
+    if (base.BeginsWith("input/")) {
+      base.Remove(0, 6);
+    }
+    outFileName = "hists/processed_" + base;
   }
 
   gStyle->SetPalette(1);

@@ -14,7 +14,7 @@ void plotAll() {
   std::vector<TFile *> inputFiles;
 
   for (auto &energy : energyTitles) {
-    TFile *inputfile = new TFile("hists/processed_thesis_" + energy + "gev.edm4eic.root", "READ");
+    TFile *inputfile = new TFile("hists/processed_neutron_" + energy + "gev.edm4eic.root", "READ");
     inputFiles.push_back(inputfile);
   }
   std::cout << std::endl;
@@ -45,7 +45,7 @@ void plotAll() {
   can->cd();
   can->Divide(2, 2, 0., 0.);
 
-  TString outPdf = "pdfs/plot_all.pdf";
+  TString outPdf = "pdfs/plots_all.pdf";
   can->SaveAs(outPdf + "[");
 
   TLatex *text = new TLatex();

@@ -16,7 +16,7 @@ void energyComparison() {
 
 
 	TFile *inputfile1 = new TFile("original/processed_original_5gev.root", "READ");
-	TFile *inputfile2 = new TFile("hists/processed_thesis_5gev.edm4eic.root", "READ");
+	TFile *inputfile2 = new TFile("hists/processed_neutron_5gev.edm4eic.root", "READ");
 	inputFiles.push_back(inputfile1);
 	inputFiles.push_back(inputfile2);
 

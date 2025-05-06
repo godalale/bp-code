@@ -22,7 +22,7 @@ void plotHists() {
   std::vector<TFile *> inputFiles;
 
   for (auto &energy : energyTitles) {
-    TFile *inputfile = new TFile("hists/processed_thesis_" + energy + "gev.edm4eic.root", "READ");
+    TFile *inputfile = new TFile("hists/processed_neutron_" + energy + "gev.edm4eic.root", "READ");
     inputFiles.push_back(inputfile);
   }
   std::cout << std::endl;
@@ -50,7 +50,7 @@ void plotHists() {
   can->cd();
   can->Divide(2, 2, 0., 0.);
 
-  TString outPdf = "pdfs/plots_thesis.pdf";
+  TString outPdf = "pdfs/plots.pdf";
   can->SaveAs(outPdf + "[");
 
   TLatex *text = new TLatex();

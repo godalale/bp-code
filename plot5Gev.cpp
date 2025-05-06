@@ -6,22 +6,22 @@
 
 
 void plot5Gev() {
-  TFile *inputfile = new TFile("hists/processed_thesis_5gev.edm4eic.root", "READ");
+  TFile *inputfile = new TFile("hists/processed_neutron_5gev.edm4eic.root", "READ");
 
-  TH1D *phiResolution{};
-  TH1D *thetaResolution{};
+  TH1D *phiResolution;
+  TH1D *thetaResolution;
 
-  phiResolution = (TH1D *)inputfile->Get("HCal_Reco/hPhiResolution_HCal_Reco");
-  if (!phiResolution.back()) std::cerr << "phiResolution is null" << std::endl;
-  thetaResolution = (TH1D *)inputfile->Get("HCal_Reco/hThetaResolution_HCal_Reco");
-  if (!thetaResolution.back()) std::cerr << "theta is null" << std::endl;
+  phiResolution = (TH1D*)inputfile->Get("HCal_Reco/hPhiResolution_HCal_Reco");
+  if (!phiResolution) std::cerr << "phiResolution is null" << std::endl;
+  thetaResolution = (TH1D*)inputfile->Get("HCal_Reco/hThetaResolution_HCal_Reco");
+  if (!thetaResolution) std::cerr << "theta is null" << std::endl;
 
   TCanvas *can = new TCanvas("can", "can", 1200, 600);
   can->SetLeftMargin(0.16);
   can->SetBottomMargin(0.15);
   can->Divide(2,1,0.,0.);
 
-  TString outPdf = "pdfs/5gev_plots.pdf";
+  TString outPdf = "pdfs/plots_5Gev.pdf";
   can->SaveAs(outPdf + "[");
 
   TLatex *text_phi = new TLatex();
